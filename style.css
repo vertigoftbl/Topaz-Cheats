@@ -59,81 +59,14 @@ body {
   display: none;
 }
 
-/* For Home page */
-#Home {
-  visibility: hidden;
+.page {
+  visibility: hidden; /* Pages are hidden by default */
   padding: 20px;
-  transform: translateY(20%);
-  transition: transform 1s ease;
+  transform: translateY(20%); /* All pages start at 20% off-screen */
+  transition: transform 1s ease; /* Smooth transition for the transform */
 }
 
-#Home.show {
-  visibility: visible;
-  transform: translateY(0%);
+.page.show {
+  visibility: visible; /* Page becomes visible when 'show' class is added */
+  transform: translateY(0%); /* Animate to the final position at 0% */
 }
-
-/* For Shop page */
-#Shop {
-  visibility: hidden;
-  padding: 20px;
-  transform: translateY(-20%);
-  transition: transform 1s ease;
-}
-
-#Shop.show {
-  visibility: visible;
-  transform: translateY(-40%);
-}
-
-/* For Status page */
-#Status {
-  visibility: hidden;
-  padding: 20px;
-  transform: translateY(20%);
-  transition: transform 1s ease;
-}
-
-#Status.show {
-  visibility: visible;
-  transform: translateY(0%);
-}
-
-/* For FAQ page */
-#FAQ {
-  visibility: hidden;
-  padding: 20px;
-  transform: translateY(20%);
-  transition: transform 1s ease;
-}
-
-#FAQ.show {
-  visibility: visible;
-  transform: translateY(0%);
-}
-
-/* For About page */
-#About {
-  visibility: hidden;
-  padding: 20px;
-  transform: translateY(20%);
-  transition: transform 1s ease;
-}
-
-#About.show {
-  visibility: visible;
-  transform: translateY(0%);
-}
-
-/* For Contact page */
-#Contact {
-  visibility: hidden;
-  padding: 20px;
-  transform: translateY(20%);
-  transition: transform 1s ease;
-}
-
-#Contact.show {
-  visibility: visible;
-  transform: translateY(0%);
-}
-
