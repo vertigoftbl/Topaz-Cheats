@@ -19,6 +19,11 @@
     <a href="javascript:void(0);" onclick="showPage('Contact')">Contact</a>
   </div>
 
+  <!-- Default Page -->
+  <div id="Default" class="page">
+    <!-- This page is intentionally empty for now -->
+  </div>
+
   <div id="Home" class="page">
     <h1>Welcome to Home Page</h1>
     <p>This is the home page content.</p>
@@ -50,6 +55,11 @@
   </div>
 
   <script>
+    // Show default page when first loaded
+    window.onload = function() {
+      showPage('Default');
+    };
+
     function showPage(pageId) {
       // Hide all pages
       let pages = document.querySelectorAll('.page');
