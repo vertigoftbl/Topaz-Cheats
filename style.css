@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #09090B;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .navbar {
@@ -11,23 +12,19 @@ body {
   justify-content: center;
   gap: 20px;
   background: #09090B;
-  padding: 20px 0;
+  padding: 15px 0;
   width: 100%;
-  position: relative;
-  animation: navbarSlide 0.5s cubic-bezier(0.5, 0, 0.5, 1);
-  height: 110%;
+  position: fixed; /* Fix navbar to top */
+  top: 0;
+  left: 0;
+  z-index: 1000;
   border-bottom: 0.5px solid red;
+  animation: navbarSlide 0.5s cubic-bezier(0.5, 0, 0.5, 1);
 }
 
 @keyframes navbarSlide {
   0% {
-    transform: translateY(-60%);
-  }
-  40% {
-    transform: translateY(15%);
-  }
-  70% {
-    transform: translateY(-5%);
+    transform: translateY(-100%);
   }
   100% {
     transform: translateY(0);
@@ -37,11 +34,10 @@ body {
 .navbar a {
   color: white;
   text-decoration: none;
-  padding: 0;
+  padding: 10px;
   cursor: pointer;
   outline: none;
   font-size: 16px;
-  position: relative;
   transition: color 1s ease, opacity 1s ease;
 }
 
@@ -54,37 +50,18 @@ body {
   color: red;
 }
 
-.navbar a[title]:hover::after {
-  content: "";
-  display: none;
-}
-
+/* Fixes for the page transitions */
 .page {
-  visibility: hidden;
-  padding: 20px;
-  transform: translateY(20%);
-  transition: transform 1s ease, visibility 0s 0.5s; /* Ensure visibility changes smoothly */
-  min-height: 100vh; /* Ensures each section has a uniform height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centers content */
-  align-items: center;
+  display: none; /* Prevents stacking issues */
+  padding: 100px 20px 20px; /* Adds space for navbar */
+  min-height: 100vh;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .page.show {
-  visibility: visible;
-  transform: translateY(0%);
-  transition: transform 1s ease, visibility 0s;
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
-
-
-#home, #shop, #status, #faq, #about, #contact {
-  visibility: hidden;
-  transform: translateY(20%);
-}
-
-#home.show, #shop.show, #status.show, #faq.show, #about.show, #contact.show {
-  visibility: visible;
-  transform: translateY(0%);
-}
-
