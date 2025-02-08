@@ -59,16 +59,12 @@
 
   pages.forEach(page => {
     page.classList.remove('show');
-    setTimeout(() => {
-      page.style.visibility = 'hidden';
-    }, 500); // Wait for animation to finish before hiding
   });
 
   let currentPage = window.location.hash.substring(1) || 'home';
   let activePage = document.getElementById(currentPage);
 
   if (activePage) {
-    activePage.style.visibility = 'visible';
     activePage.classList.add('show');
   }
 
