@@ -52,29 +52,33 @@
   </div>
 
   <script>
-    window.onload = function () {
-      showPage('Default');
-    };
+  window.onload = function () {
+    showPage('Default');
+  };
 
-    function showPage(pageId) {
-      // Hide all pages
-      let pages = document.querySelectorAll('.page');
-      pages.forEach(page => page.style.display = 'none');
+  function showPage(pageId) {
+    // Hide all pages
+    let pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+      page.style.display = 'none';  // Hide each page
+      page.classList.remove('show'); // Remove the show class to reset position
+    });
 
-      // Show the selected page and add animation
-      let activePage = document.getElementById(pageId);
-      activePage.style.display = 'block';
-      activePage.classList.add('show'); // Add the animation class
+    // Show the selected page and add the 'show' class to trigger animation
+    let activePage = document.getElementById(pageId);
+    activePage.style.display = 'block';
+    activePage.classList.add('show');  // Apply the show class
 
-      // Remove active class from all navbar links
-      let links = document.querySelectorAll('.navbar a');
-      links.forEach(link => link.classList.remove('active'));
+    // Remove active class from all navbar links
+    let links = document.querySelectorAll('.navbar a');
+    links.forEach(link => link.classList.remove('active'));
 
-      // Add active class to the clicked link
-      let activeLink = document.querySelector(`.navbar a[onclick="showPage('${pageId}')"]`);
-      activeLink.classList.add('active');
-    }
-  </script>
+    // Add active class to the clicked link
+    let activeLink = document.querySelector(`.navbar a[onclick="showPage('${pageId}')"]`);
+    activeLink.classList.add('active');
+  }
+</script>
+
 
 </body>
 
