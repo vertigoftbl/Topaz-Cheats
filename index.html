@@ -19,10 +19,7 @@
     <a href="javascript:void(0);" onclick="showPage('Contact')">Contact</a>
   </div>
 
-  <!-- Default Page -->
-  <div id="Default" class="page">
-    <!-- This page is intentionally empty for now -->
-  </div>
+  <div id="Default" class="page"></div>
 
   <div id="Home" class="page">
     <h1>Welcome to Home Page</h1>
@@ -55,24 +52,19 @@
   </div>
 
   <script>
-    // Show default page when first loaded
     window.onload = function() {
       showPage('Default');
     };
 
     function showPage(pageId) {
-      // Hide all pages
       let pages = document.querySelectorAll('.page');
       pages.forEach(page => page.style.display = 'none');
 
-      // Show the selected page
       document.getElementById(pageId).style.display = 'block';
 
-      // Remove active class from all navbar links
       let links = document.querySelectorAll('.navbar a');
       links.forEach(link => link.classList.remove('active'));
 
-      // Add active class to the clicked link
       let activeLink = document.querySelector(`.navbar a[href="javascript:void(0);"][onclick="showPage('${pageId}')"]`);
       activeLink.classList.add('active');
     }
