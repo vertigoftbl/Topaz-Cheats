@@ -62,7 +62,7 @@ body {
 .page {
   visibility: hidden; 
   padding: 20px;
-  transform: translateY(20%); /* Start position for all pages */
+  transform: translateY(20%); /* All pages start at 20% down */
   transition: transform 1s ease; 
 }
 
@@ -73,5 +73,5 @@ body {
 
 .page.show {
   visibility: visible; 
-  transform: translateY(0%);
+  transform: translateY(0%); /* All pages go to their final position */
 }
