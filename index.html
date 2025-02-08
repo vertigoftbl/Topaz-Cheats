@@ -48,41 +48,35 @@
 
   <script>
     window.onload = function() {
-  setTimeout(() => {
-    handlePageChange(); // Ensure active page is set after loading
-  }, 10);
-};
+      setTimeout(handlePageChange, 10);
+    };
 
-window.onhashchange = function() {
-  handlePageChange(); // Handle hash change immediately
-};
+    window.onhashchange = function() {
+      handlePageChange();
+    };
 
-function handlePageChange() {
-  let pages = document.querySelectorAll('.page');
-  let currentPage = window.location.hash.substring(1) || 'home';
-  let activePage = document.getElementById(currentPage);
+    function handlePageChange() {
+      let pages = document.querySelectorAll('.page');
+      let currentPage = window.location.hash.substring(1) || 'home';
+      let activePage = document.getElementById(currentPage);
 
-  // Hide all pages
-  pages.forEach(page => {
-    page.classList.remove('show');
-  });
+      pages.forEach(page => {
+        page.classList.remove('show');
+      });
 
-  // Show the current page
-  if (activePage) {
-    activePage.classList.add('show');
-  }
+      if (activePage) {
+        activePage.classList.add('show');
+      }
 
-  // Remove the 'active' class from all links
-  document.querySelectorAll('.navbar a').forEach(link => {
-    link.classList.remove('active');
-  });
+      document.querySelectorAll('.navbar a').forEach(link => {
+        link.classList.remove('active');
+      });
 
-  // Add the 'active' class to the current link
-  let activeLink = document.querySelector(.navbar a[href="#${currentPage}"]);
-  if (activeLink) {
-    activeLink.classList.add('active');
-  }
-}
+      let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
+      if (activeLink) {
+        activeLink.classList.add('active');
+      }
+    }
   </script>
 
 </body>
