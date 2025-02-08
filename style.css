@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #09090B;
-  overflow: hidden; /* Prevents scrolling */
+  overflow: hidden;
   height: 100vh;
 }
 
@@ -53,13 +53,13 @@ body {
 
 .page {
   position: absolute;
-  top: 60px; /* Space for navbar */
+  top: 60px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 60px);
+  height: auto;
   display: flex;
-  flex-direction: column; /* Fixes text stacking */
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   opacity: 0;
   transform: translateY(20px);
