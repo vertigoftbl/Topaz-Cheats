@@ -17,7 +17,7 @@ body {
   animation: navbarSlide 0.7s cubic-bezier(0.5, 0, 0.5, 1);
   height: 110%;
   transform: translateY(-50%);
-  outline: 3px solid red;
+  outline: 1px solid red;
 }
 
 @keyframes navbarSlide {
