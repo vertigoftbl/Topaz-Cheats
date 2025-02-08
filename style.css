@@ -41,7 +41,7 @@ body {
   cursor: pointer;
   outline: none;  /* Remove any focus outline to prevent blinking */
   font-size: 16px;
-  pointer-events: none;
+  position: relative;
 }
 
 .navbar a:hover {
@@ -50,6 +50,11 @@ body {
 
 .navbar a.active {
   color: red;
+}
+
+.navbar a[title]:hover::after {
+  content: ""; /* Remove the tooltip */
+  display: none; /* Make sure no tooltip is shown */
 }
 
 .page {
