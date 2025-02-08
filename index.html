@@ -58,31 +58,36 @@
     };
 
     function handlePageChange() {
-      // Hide all pages
-      let pages = document.querySelectorAll('.page');
-      pages.forEach(page => {
-        page.style.display = 'none';
-      });
+  // Hide all pages
+  let pages = document.querySelectorAll('.page');
+  pages.forEach(page => {
+    page.classList.remove('show'); // Remove animation class
+    page.style.visibility = 'hidden'; // Hide but keep layout
+  });
 
-      // Get the current hash from the URL
-      let currentPage = window.location.hash.substring(1) || 'home'; // Default to 'home' if no hash
-      let activePage = document.getElementById(currentPage);
+  // Get the current hash from the URL
+  let currentPage = window.location.hash.substring(1) || 'home'; // Default to 'home' if no hash
+  let activePage = document.getElementById(currentPage);
 
-      if (activePage) {
-        activePage.style.display = 'block'; // Show the active page
-      }
+  if (activePage) {
+    activePage.style.visibility = 'visible'; // Make visible
+    setTimeout(() => {
+      activePage.classList.add('show'); // Add animation class
+    }, 50); // Small delay to allow CSS transition
+  }
 
-      // Update the navbar active class
-      let links = document.querySelectorAll('.navbar a');
-      links.forEach(link => {
-        link.classList.remove('active');
-      });
+  // Update the navbar active class
+  let links = document.querySelectorAll('.navbar a');
+  links.forEach(link => {
+    link.classList.remove('active');
+  });
 
-      let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
-      if (activeLink) {
-        activeLink.classList.add('active');
-      }
-    }
+  let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
+  if (activeLink) {
+    activeLink.classList.add('active');
+  }
+}
+
   </script>
 
 </body>
