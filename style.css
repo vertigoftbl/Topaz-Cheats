@@ -39,7 +39,7 @@ body {
   text-decoration: none;
   padding: 0;
   cursor: pointer;
-  outline: none;
+  outline: none;  /* Remove any focus outline to prevent blinking */
   font-size: 16px;
 }
 
