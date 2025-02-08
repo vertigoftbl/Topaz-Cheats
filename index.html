@@ -19,8 +19,6 @@
     <a href="javascript:void(0);" onclick="showPage('Contact')" title="topazcheats.store/contact">Contact</a>
   </div>
 
-  <div id="Default" class="page"></div>
-
   <div id="Home" class="page">
     <h1>Welcome to Home Page</h1>
     <p>This is the home page content.</p>
@@ -53,7 +51,7 @@
 
   <script>
   window.onload = function () {
-    showPage('Home'); // Show the Home page by default
+    showPage('Home');
   };
 
   function showPage(pageId) {
@@ -64,8 +62,8 @@
     });
 
     let activePage = document.getElementById(pageId);
-    activePage.style.visibility = 'visible'; 
-    activePage.classList.add('show'); 
+    activePage.style.visibility = 'visible';
+    activePage.classList.add('show');
 
     let links = document.querySelectorAll('.navbar a');
     links.forEach(link => link.classList.remove('active'));
