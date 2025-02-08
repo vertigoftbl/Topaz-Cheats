@@ -59,12 +59,16 @@
 
   pages.forEach(page => {
     page.classList.remove('show');
+    setTimeout(() => {
+      page.style.display = 'none';
+    }, 500); // Hide after animation ends
   });
 
   let currentPage = window.location.hash.substring(1) || 'home';
   let activePage = document.getElementById(currentPage);
 
   if (activePage) {
+    activePage.style.display = 'block'; // Show before animation starts
     setTimeout(() => {
       activePage.classList.add('show');
     }, 50);
@@ -82,6 +86,7 @@
 
 window.onload = handlePageChange;
 window.onhashchange = handlePageChange;
+
   </script>
 
 </body>
