@@ -39,16 +39,15 @@ body {
   text-decoration: none;
   padding: 0;
   cursor: pointer;
-  outline: none;  /* Remove any focus outline to prevent blinking */
+  outline: none;
   font-size: 16px;
   position: relative;
-  opacity: 1; /* Default opacity */
-  transition: color 1s ease, opacity 1s ease; /* Fade in and out effect for hover */
+  transition: color 1s ease, opacity 1s ease;
 }
 
 .navbar a:hover {
   color: red;
-  opacity: 0.7; /* Make the link slightly transparent on hover */
+  opacity: 0.7;
 }
 
 .navbar a.active {
@@ -56,44 +55,23 @@ body {
 }
 
 .navbar a[title]:hover::after {
-  content: ""; /* Remove the tooltip */
-  display: none; /* Make sure no tooltip is shown */
+  content: "";
+  display: none;
 }
 
 .page {
-  visibility: hidden; /* Initially, all pages are hidden */
+  visibility: hidden; 
   padding: 20px;
-  transform: translateY(30%); /* Start position for the page content, below its final position */
-  transition: transform 1s ease; /* Apply only the translation effect */
+  transform: translateY(20%); /* Start position for all pages */
+  transition: transform 1s ease; 
 }
 
 #Home {
-  visibility: visible; /* Home page will be visible when first loaded */
-  transform: translateY(0%); /* Home page is at its final position */
+  visibility: visible;
+  transform: translateY(0%); 
 }
 
 .page.show {
-  visibility: visible; /* Page becomes visible */
-  transform: translateY(0%); /* Move content to its original position */
-}
-
-/* Additional settings for other pages to be progressively lower */
-#Shop {
-  transform: translateY(40%); /* Shop page starts lower than Home */
-}
-
-#Status {
-  transform: translateY(50%); /* Status page starts lower than Shop */
-}
-
-#FAQ {
-  transform: translateY(60%); /* FAQ page starts lower than Status */
-}
-
-#About {
-  transform: translateY(70%); /* About page starts lower than FAQ */
-}
-
-#Contact {
-  transform: translateY(80%); /* Contact page starts lower than About */
+  visibility: visible; 
+  transform: translateY(0%);
 }
