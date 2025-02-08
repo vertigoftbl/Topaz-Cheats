@@ -55,29 +55,29 @@
     };
 
     function handlePageChange() {
-  let pages = document.querySelectorAll('.page');
+      let pages = document.querySelectorAll('.page');
 
-  pages.forEach(page => {
-    page.classList.remove('show');
-  });
+      pages.forEach(page => {
+        page.classList.remove('show');
+      });
 
-  let currentPage = window.location.hash.substring(1) || 'home';
-  let activePage = document.getElementById(currentPage);
+      let currentPage = window.location.hash.substring(1) || 'home';
+      let activePage = document.getElementById(currentPage);
 
-  if (activePage) {
-    activePage.classList.add('show');
-  }
+      if (activePage) {
+        activePage.classList.add('show');
+      }
 
-  document.querySelectorAll('.navbar a').forEach(link => {
-    link.classList.remove('active');
-  });
+      document.querySelectorAll('.navbar a').forEach(link => {
+        link.classList.remove('active');
+      });
 
-  let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
-  if (activeLink) activeLink.classList.add('active');
-}
+      let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
 
-window.onload = handlePageChange;
-window.onhashchange = handlePageChange;
+    window.onload = handlePageChange;
+    window.onhashchange = handlePageChange;
   </script>
 
 </body>
