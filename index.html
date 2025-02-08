@@ -60,15 +60,15 @@
   pages.forEach(page => {
     page.classList.remove('show');
     setTimeout(() => {
-      page.style.display = 'none';
-    }, 500); // Hide after animation ends
+      page.style.visibility = 'hidden'; // Fully hide after transition
+    }, 500);
   });
 
   let currentPage = window.location.hash.substring(1) || 'home';
   let activePage = document.getElementById(currentPage);
 
   if (activePage) {
-    activePage.style.display = 'block'; // Show before animation starts
+    activePage.style.visibility = 'visible'; // Show before animation starts
     setTimeout(() => {
       activePage.classList.add('show');
     }, 50);
