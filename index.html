@@ -53,32 +53,27 @@
 
   <script>
   window.onload = function () {
-    showPage('Home');  // Show the Home page by default
+    showPage('Home');  
   };
 
   function showPage(pageId) {
-    // Hide all pages by setting visibility to hidden
     let pages = document.querySelectorAll('.page');
     pages.forEach(page => {
-      page.style.visibility = 'hidden'; // Hide the page while maintaining its layout
-      page.classList.remove('show');    // Remove animation class to reset position
+      page.style.visibility = 'hidden'; 
+      page.classList.remove('show');
     });
 
-    // Show the selected page and add the 'show' class to trigger animation
     let activePage = document.getElementById(pageId);
-    activePage.style.visibility = 'visible'; // Make the page visible
-    activePage.classList.add('show');        // Add the show class for animation
+    activePage.style.visibility = 'visible'; 
+    activePage.classList.add('show');
 
-    // Remove active class from all navbar links
     let links = document.querySelectorAll('.navbar a');
     links.forEach(link => link.classList.remove('active'));
 
-    // Add active class to the clicked link
     let activeLink = document.querySelector(`.navbar a[onclick="showPage('${pageId}')"]`);
     activeLink.classList.add('active');
   }
-</script>
-
+  </script>
 
 </body>
 
