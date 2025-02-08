@@ -3,56 +3,53 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+  background-color: #333;
 }
 
-/* Navbar Styling */
 .navbar {
   display: flex;
   justify-content: center;
   gap: 20px;
   background: #333;
-  padding: 20px 0; /* Increased padding for height */
+  padding: 20px 0;
   width: 100%;
   position: relative;
-  animation: navbarSlide 0.7s cubic-bezier(0.5, 0, 0.5, 1); /* Smoother bounce */
-  height: 110%; /* 10% taller */
-  /* Remove transform: translateY(-10%) here, let the animation handle the position */
+  animation: navbarSlide 0.7s cubic-bezier(0.5, 0, 0.5, 1);
+  height: 110%;
+  transform: translateY(-50%);
+  outline: 3px solid red;
 }
 
-/* Bounce Effect Animation */
 @keyframes navbarSlide {
   0% {
-    transform: translateY(-60px); /* Start 60px higher */
+    transform: translateY(-50%);
   }
   40% {
-    transform: translateY(15px); /* Bounce up slightly */
+    transform: translateY(10%);
   }
-  60% {
-    transform: translateY(-5px); /* Small bounce down */
+  70% {
+    transform: translateY(-2%);
   }
   100% {
-    transform: translateY(0); /* Final smooth position */
+    transform: translateY(0);
   }
 }
 
-/* Navbar Links (Remove padding, set text color and add hover color) */
 .navbar a {
   color: white;
   text-decoration: none;
-  padding: 0; /* Remove padding */
+  padding: 0;
   cursor: pointer;
-  outline: none; /* Remove outline */
+  outline: none;
   font-size: 16px;
 }
 
-/* Hover Color */
 .navbar a:hover {
-  color: red; /* Change text color to red on hover */
+  color: red;
 }
 
-/* Active Link Color */
 .navbar a.active {
-  color: red; /* Make text color red when clicked */
+  color: red;
 }
 
 .page {
@@ -60,7 +57,6 @@ body {
   padding: 20px;
 }
 
-/* Show default page by default */
 #Default {
   display: block;
 }
