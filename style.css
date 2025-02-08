@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #09090B;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -14,7 +14,7 @@ body {
   background: #09090B;
   padding: 15px 0;
   width: 100%;
-  position: fixed; /* Fix navbar to top */
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
@@ -50,18 +50,19 @@ body {
   color: red;
 }
 
-/* Fixes for the page transitions */
+/* Page transition fix */
 .page {
-  display: none; /* Prevents stacking issues */
-  padding: 100px 20px 20px; /* Adds space for navbar */
-  min-height: 100vh;
+  visibility: hidden;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, visibility 0s 0.5s;
+  padding: 100px 20px 20px;
+  min-height: 100vh;
 }
 
 .page.show {
-  display: block;
+  visibility: visible;
   opacity: 1;
   transform: translateY(0);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, visibility 0s;
 }
