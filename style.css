@@ -64,18 +64,36 @@ body {
   visibility: hidden; /* Initially, all pages are hidden */
   padding: 20px;
   transform: translateY(30%); /* Start position for the page content, below its final position */
-  opacity: 0; /* Start invisible */
-  transition: transform 1s ease, opacity 1s ease; /* Apply the translation effect and fade in */
+  transition: transform 1s ease; /* Apply only the translation effect */
 }
 
 #Home {
   visibility: visible; /* Home page will be visible when first loaded */
-  transform: translateY(0%); /* Default page is already at its final position */
-  opacity: 1; /* Make sure the default page is visible */
+  transform: translateY(0%); /* Home page is at its final position */
 }
 
 .page.show {
   visibility: visible; /* Page becomes visible */
   transform: translateY(0%); /* Move content to its original position */
-  opacity: 1; /* Fade in */
+}
+
+/* Additional settings for other pages to be progressively lower */
+#Shop {
+  transform: translateY(40%); /* Shop page starts lower than Home */
+}
+
+#Status {
+  transform: translateY(50%); /* Status page starts lower than Shop */
+}
+
+#FAQ {
+  transform: translateY(60%); /* FAQ page starts lower than Status */
+}
+
+#About {
+  transform: translateY(70%); /* About page starts lower than FAQ */
+}
+
+#Contact {
+  transform: translateY(80%); /* Contact page starts lower than About */
 }
