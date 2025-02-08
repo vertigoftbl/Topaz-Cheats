@@ -63,16 +63,18 @@ body {
 .page {
   display: none;
   padding: 20px;
-  transform: translateY(30%); /* Start position for the page content */
-  transition: transform 1s ease; /* Apply the translation effect */
+  transform: translateY(30%); /* Start position for the page content, below its final position */
+  opacity: 0; /* Start invisible */
+  transition: transform 1s ease, opacity 1s ease; /* Apply the translation effect and fade in */
 }
 
 #Default {
   display: block;
-  transform: translateY(0%); /* Position the default page properly */
+  transform: translateY(0%); /* Default page is already at its final position */
+  opacity: 1; /* Make sure the default page is visible */
 }
 
 .page.show {
-  transform: translateY(0%); /* Move content up to its final position */
+  transform: translateY(0%); /* Move content to its original position */
+  opacity: 1; /* Fade in */
 }
-
