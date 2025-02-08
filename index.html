@@ -47,41 +47,31 @@
   </div>
 
   <script>
-    // When the page loads, check the hash and show the corresponding page
     window.onload = function() {
       handlePageChange();
     };
-
-    // Add event listener for hash change to handle page transitions
     window.onhashchange = function() {
       handlePageChange();
     };
 
     function handlePageChange() {
-  // Hide all pages
   let pages = document.querySelectorAll('.page');
+
   pages.forEach(page => {
     page.classList.remove('show');
-    setTimeout(() => {
-      page.style.display = 'none'; // Fully hide after transition
-    }, 500);
   });
 
-  // Get the current hash or default to home
   let currentPage = window.location.hash.substring(1) || 'home';
   let activePage = document.getElementById(currentPage);
 
   if (activePage) {
-    activePage.style.display = 'block'; // Show before animation starts
     setTimeout(() => {
-      activePage.classList.add('show'); // Trigger animation
+      activePage.classList.add('show');
     }, 50);
   }
 
-  // Scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // Update navbar active state
   document.querySelectorAll('.navbar a').forEach(link => {
     link.classList.remove('active');
   });
@@ -90,7 +80,6 @@
   if (activeLink) activeLink.classList.add('active');
 }
 
-// Ensure page transition works on load
 window.onload = handlePageChange;
 window.onhashchange = handlePageChange;
   </script>
