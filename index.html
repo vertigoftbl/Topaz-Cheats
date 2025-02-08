@@ -61,37 +61,38 @@
   // Hide all pages
   let pages = document.querySelectorAll('.page');
   pages.forEach(page => {
-    page.classList.remove('show'); // Remove animation class
-    page.style.visibility = 'hidden'; // Hide but keep layout
+    page.classList.remove('show');
+    setTimeout(() => {
+      page.style.display = 'none'; // Fully hide after transition
+    }, 500);
   });
 
-  // Get the current hash from the URL
-  let currentPage = window.location.hash.substring(1) || 'home'; // Default to 'home' if no hash
+  // Get the current hash or default to home
+  let currentPage = window.location.hash.substring(1) || 'home';
   let activePage = document.getElementById(currentPage);
 
   if (activePage) {
-    activePage.style.visibility = 'visible'; // Make visible
+    activePage.style.display = 'block'; // Show before animation starts
     setTimeout(() => {
-      activePage.classList.add('show'); // Add animation class
-    }, 50); // Small delay to allow CSS transition
+      activePage.classList.add('show'); // Trigger animation
+    }, 50);
   }
 
-  // Scroll to the top after the section is shown
+  // Scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // Update the navbar active class
-  let links = document.querySelectorAll('.navbar a');
-  links.forEach(link => {
+  // Update navbar active state
+  document.querySelectorAll('.navbar a').forEach(link => {
     link.classList.remove('active');
   });
 
   let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
-  if (activeLink) {
-    activeLink.classList.add('active');
-  }
+  if (activeLink) activeLink.classList.add('active');
 }
 
-
+// Ensure page transition works on load
+window.onload = handlePageChange;
+window.onhashchange = handlePageChange;
   </script>
 
 </body>
