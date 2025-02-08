@@ -11,63 +11,73 @@
 <body>
 
   <div class="navbar">
-    <a href="#" onclick="showPage('Home')" title="topazcheats.store/home">Home</a>
-    <a href="#" onclick="showPage('Shop')" title="topazcheats.store/shop">Shop</a>
-    <a href="#" onclick="showPage('Status')" title="topazcheats.store/status">Status</a>
-    <a href="#" onclick="showPage('FAQ')" title="topazcheats.store/faq">FAQ</a>
-    <a href="#" onclick="showPage('About')" title="topazcheats.store/about">About</a>
-    <a href="#" onclick="showPage('Contact')" title="topazcheats.store/contact">Contact</a>
+    <a href="#home" title="topazcheats.store/home">Home</a>
+    <a href="#shop" title="topazcheats.store/shop">Shop</a>
+    <a href="#status" title="topazcheats.store/status">Status</a>
+    <a href="#faq" title="topazcheats.store/faq">FAQ</a>
+    <a href="#about" title="topazcheats.store/about">About</a>
+    <a href="#contact" title="topazcheats.store/contact">Contact</a>
   </div>
 
   <div id="Default" class="page"></div>
 
-  <div id="Home" class="page">
+  <div id="home" class="page">
     <h1>Welcome to Home Page</h1>
     <p>This is the home page content.</p>
   </div>
 
-  <div id="Shop" class="page">
+  <div id="shop" class="page">
     <h1>Shop</h1>
     <p>Here you can browse our products.</p>
   </div>
 
-  <div id="Status" class="page">
+  <div id="status" class="page">
     <h1>Status</h1>
     <p>Here you can check what cheats are up or down.</p>
   </div>
   
-  <div id="FAQ" class="page">
+  <div id="faq" class="page">
     <h1>FAQ</h1>
     <p>Here you can see common questions we get asked.</p>
   </div>
 
-  <div id="About" class="page">
+  <div id="about" class="page">
     <h1>About</h1>
     <p>Here you can see what we do.</p>
   </div>
 
-  <div id="Contact" class="page">
+  <div id="contact" class="page">
     <h1>Contact Us</h1>
     <p>Reach out to us here.</p>
   </div>
 
   <script>
-    window.onload = function() {
-      showPage('Default');
-    };
-
+    // Function to handle page switching based on the URL hash
     function showPage(pageId) {
       let pages = document.querySelectorAll('.page');
       pages.forEach(page => page.style.display = 'none');
 
-      document.getElementById(pageId).style.display = 'block';
-
-      let links = document.querySelectorAll('.navbar a');
-      links.forEach(link => link.classList.remove('active'));
-
-      let activeLink = document.querySelector(`.navbar a[onclick="showPage('${pageId}')"]`);
-      activeLink.classList.add('active');
+      let activePage = document.getElementById(pageId);
+      if (activePage) {
+        activePage.style.display = 'block';
+      }
     }
+
+    // On page load, check for the hash and show the appropriate page
+    window.onload = function() {
+      let hash = window.location.hash.substring(1); // Get the part after "#"
+      if (hash) {
+        showPage(hash);
+      } else {
+        showPage('Default'); // Default page if there's no hash
+      }
+    };
+
+    // Listen for hash change in the URL and update page
+    window.onhashchange = function() {
+      let hash = window.location.hash.substring(1);
+      showPage(hash);
+    };
   </script>
 
 </body>
