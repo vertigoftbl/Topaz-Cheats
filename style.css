@@ -64,8 +64,6 @@ body {
 }
 
 /* Show home page by default */
-#home {
+#Home {
   display: block;
 }
-
-/* JavaScript to handle active link state */
