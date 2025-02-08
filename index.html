@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="navbar">
-    <a href="" class="active">Home</a>
+    <a href="#home" class="active">Home</a>
     <a href="#shop">Shop</a>
     <a href="#status">Status</a>
     <a href="#faq">FAQ</a>
@@ -16,10 +16,10 @@
     <a href="#contact">Contact</a>
   </div>
 
-<div id="home" class="page">
-  <h1>Welcome to Home Page</h1>
-  <p>This is the home page content.</p>
-</div>
+  <div id="home" class="page">
+    <h1>Welcome to Home Page</h1>
+    <p>This is the home page content.</p>
+  </div>
 
   <div id="shop" class="page">
     <h1>Shop</h1>
@@ -45,53 +45,40 @@
     <h1>Contact Us</h1>
     <p>Reach out to us here.</p>
   </div>
-<script>
-  let isPageLoaded = false; // Flag to check if the page has been loaded
 
-  window.onload = function() {
-    if (!isPageLoaded) {
-      isPageLoaded = true; // Set the flag when the page is first loaded
+  <script>
+    window.onload = function() {
       handlePageChange();
-    } else {
-      handlePageChange(false); // Skip navbar animation on hash change
+    };
+    window.onhashchange = function() {
+      handlePageChange();
+    };
+
+    function handlePageChange() {
+      let pages = document.querySelectorAll('.page');
+
+      pages.forEach(page => {
+        page.classList.remove('show');
+      });
+
+      let currentPage = window.location.hash.substring(1) || 'home';
+      let activePage = document.getElementById(currentPage);
+
+      if (activePage) {
+        activePage.classList.add('show');
+      }
+
+      document.querySelectorAll('.navbar a').forEach(link => {
+        link.classList.remove('active');
+      });
+
+      let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
+      if (activeLink) activeLink.classList.add('active');
     }
-  };
 
-  window.onhashchange = function() {
-    handlePageChange(true);
-  };
-
-  function handlePageChange(animateNavbar = true) {
-    let pages = document.querySelectorAll('.page');
-
-    pages.forEach(page => {
-      page.classList.remove('show');
-    });
-
-    let currentPage = window.location.hash.substring(1) || 'home'; // Default to 'home' if no hash
-    let activePage = document.getElementById(currentPage);
-
-    if (activePage) {
-      activePage.classList.add('show');
-    }
-
-    // Update navbar active state
-    document.querySelectorAll('.navbar a').forEach(link => {
-      link.classList.remove('active');
-    });
-
-    let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
-    if (activeLink) activeLink.classList.add('active');
-
-    // Apply animation for navbar only on page load or refresh
-    if (animateNavbar) {
-      document.querySelector('.navbar').classList.add('animate');
-    } else {
-      document.querySelector('.navbar').classList.remove('animate');
-    }
-  }
-</script>
-
+    window.onload = handlePageChange;
+    window.onhashchange = handlePageChange;
+  </script>
 
 </body>
 </html>
