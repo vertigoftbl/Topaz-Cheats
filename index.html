@@ -76,6 +76,9 @@
     }, 50); // Small delay to allow CSS transition
   }
 
+  // Scroll to the top after the section is shown
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
   // Update the navbar active class
   let links = document.querySelectorAll('.navbar a');
   links.forEach(link => {
@@ -87,6 +90,7 @@
     activeLink.classList.add('active');
   }
 }
+
 
   </script>
 
