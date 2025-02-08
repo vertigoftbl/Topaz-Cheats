@@ -54,6 +54,11 @@ body {
   color: #05125a;
 }
 
+#home p {
+  color: grey;
+}
+
+
 .page {
   position: absolute;
   top: 90px;
