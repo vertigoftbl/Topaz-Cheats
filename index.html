@@ -50,13 +50,13 @@
     window.onload = function() {
       handlePageChange();
     };
+  
     window.onhashchange = function() {
       handlePageChange();
     };
 
     function handlePageChange() {
       let pages = document.querySelectorAll('.page');
-
       pages.forEach(page => {
         page.classList.remove('show');
       });
@@ -75,9 +75,6 @@
       let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
       if (activeLink) activeLink.classList.add('active');
     }
-
-    window.onload = handlePageChange;
-    window.onhashchange = handlePageChange;
   </script>
 
 </body>
