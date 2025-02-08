@@ -55,15 +55,18 @@
 };
 
 function showPage(pageId) {
-  // Hide all pages
   let pages = document.querySelectorAll('.page');
+
+  // Hide all pages by removing the 'show' class and reset transforms
   pages.forEach(page => {
-    page.classList.remove('show'); // Remove the show class from all pages
+    page.classList.remove('show');
+    page.style.transform = 'translateY(20%)'; // Reset transform to the starting position
   });
 
   // Show the selected page and add the 'show' class to trigger animation
   let activePage = document.getElementById(pageId);
-  activePage.classList.add('show'); // Add 'show' to trigger animation
+  activePage.classList.add('show');
+  activePage.style.transform = 'translateY(20%)'; // Ensure transform is reset when page is shown
 
   // Remove active class from all navbar links
   let links = document.querySelectorAll('.navbar a');
@@ -73,6 +76,7 @@ function showPage(pageId) {
   let activeLink = document.querySelector(`.navbar a[onclick="showPage('${pageId}')"]`);
   activeLink.classList.add('active');
 }
+
 </script>
 
 </body>
