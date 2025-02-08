@@ -45,8 +45,7 @@
     <h1>Contact Us</h1>
     <p>Reach out to us here.</p>
   </div>
-
-  <script>
+<script>
     window.onload = function() {
       handlePageChange();
     };
@@ -56,7 +55,6 @@
 
     function handlePageChange() {
       let pages = document.querySelectorAll('.page');
-
       pages.forEach(page => {
         page.classList.remove('show');
       });
@@ -65,7 +63,11 @@
       let activePage = document.getElementById(currentPage);
 
       if (activePage) {
-        activePage.classList.add('show');
+        if (currentPage === 'home' && window.location.hash === '') {
+          activePage.classList.add('show');
+        } else {
+          activePage.classList.add('show');
+        }
       }
 
       document.querySelectorAll('.navbar a').forEach(link => {
@@ -75,9 +77,6 @@
       let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
       if (activeLink) activeLink.classList.add('active');
     }
-
-    window.onload = handlePageChange;
-    window.onhashchange = handlePageChange;
   </script>
 
 </body>
