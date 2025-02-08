@@ -46,18 +46,24 @@
     <p>Reach out to us here.</p>
   </div>
 <script>
+  let isPageLoaded = false; // Flag to check if the page has been loaded
+
   window.onload = function() {
-    handlePageChange();
+    if (!isPageLoaded) {
+      isPageLoaded = true; // Set the flag when the page is first loaded
+      handlePageChange();
+    } else {
+      handlePageChange(false); // Skip navbar animation on hash change
+    }
   };
 
   window.onhashchange = function() {
-    handlePageChange();
+    handlePageChange(true);
   };
 
-  function handlePageChange() {
+  function handlePageChange(animateNavbar = true) {
     let pages = document.querySelectorAll('.page');
-    
-    // Remove 'show' class from all pages (hide them)
+
     pages.forEach(page => {
       page.classList.remove('show');
     });
@@ -66,25 +72,26 @@
     let activePage = document.getElementById(currentPage);
 
     if (activePage) {
-      if (currentPage === 'home' && window.location.hash === '') {
-        activePage.classList.add('show');
-      } else {
-        activePage.classList.add('show');
-      }
+      activePage.classList.add('show');
     }
 
-    // Update the navbar active link
+    // Update navbar active state
     document.querySelectorAll('.navbar a').forEach(link => {
       link.classList.remove('active');
     });
 
     let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
     if (activeLink) activeLink.classList.add('active');
-  }
 
-  window.onload = handlePageChange;
-  window.onhashchange = handlePageChange;
+    // Apply animation for navbar only on page load or refresh
+    if (animateNavbar) {
+      document.querySelector('.navbar').classList.add('animate');
+    } else {
+      document.querySelector('.navbar').classList.remove('animate');
+    }
+  }
 </script>
+
 
 </body>
 </html>
