@@ -41,6 +41,7 @@ body {
   cursor: pointer;
   outline: none;  /* Remove any focus outline to prevent blinking */
   font-size: 16px;
+  pointer-events: none;
 }
 
 .navbar a:hover {
