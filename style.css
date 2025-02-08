@@ -1,25 +1,61 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
+/* Navbar Styling */
 .navbar {
   display: flex;
   justify-content: center;
   gap: 20px;
   background: #333;
-  padding: 10px;
+  padding: 15px 0; /* Increased padding for height */
+  width: 100%;
+  position: relative;
+  animation: navbarSlide 0.5s ease-out;
+  height: 110%; /* 10% taller */
+  transform: translateY(-10%); /* Start 10% higher */
 }
 
+/* Bounce Effect Animation */
+@keyframes navbarSlide {
+  0% {
+    transform: translateY(-60px); /* Start 60px higher */
+  }
+  40% {
+    transform: translateY(10px); /* Bounce up */
+  }
+  60% {
+    transform: translateY(-5px); /* Bounce down */
+  }
+  80% {
+    transform: translateY(2px); /* Small adjustment */
+  }
+  100% {
+    transform: translateY(0); /* Resting position */
+  }
+}
+
+/* Navbar Links (Remove padding, set text color and add hover color) */
 .navbar a {
   color: white;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 0; /* Remove padding */
   cursor: pointer;
+  outline: none; /* Remove outline */
+  font-size: 16px;
 }
 
+/* Hover Color */
 .navbar a:hover {
-  background: #555;
+  color: red; /* Change text color to red on hover */
+}
+
+/* Active Link Color */
+.navbar a.active {
+  color: red; /* Make text color red when clicked */
 }
 
 .page {
@@ -27,38 +63,9 @@ body {
   padding: 20px;
 }
 
+/* Show home page by default */
 #home {
   display: block;
 }
 
-@keyframes navbarSlide {
-  0% {
-    transform: translateY(-50px);
-  }
-  40% {
-    transform: translateY(10px); /* Bounce up a bit */
-  }
-  60% {
-    transform: translateY(-5px); /* Bounce down a little */
-  }
-  80% {
-    transform: translateY(2px); /* Small adjustment */
-  }
-  100% {
-    transform: translateY(0); /* Final resting position */
-  }
-}
-
-.navbar {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  background: #333;
-  padding: 10px;
-  animation: navbarSlide 0.5s ease-out;
-}
-
-
-
-
-
+/* JavaScript to handle active link state */
