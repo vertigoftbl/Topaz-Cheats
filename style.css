@@ -60,10 +60,23 @@ body {
 }
 
 .page {
-  visibility: hidden; /* Initially hidden */
+  visibility: hidden;
   padding: 20px;
-  transition: transform 1s ease; /* Smooth transition for transform */
+  transform: translateY(20%);
+  transition: transform 1s ease, visibility 0s 0.5s; /* Ensure visibility changes smoothly */
+  min-height: 100vh; /* Ensures each section has a uniform height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content */
+  align-items: center;
 }
+
+.page.show {
+  visibility: visible;
+  transform: translateY(0%);
+  transition: transform 1s ease, visibility 0s;
+}
+
 
 #home, #shop, #status, #faq, #about, #contact {
   visibility: hidden;
