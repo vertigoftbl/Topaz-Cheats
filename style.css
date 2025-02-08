@@ -76,13 +76,13 @@ body {
 #Shop {
   visibility: hidden;
   padding: 20px;
-  transform: translateY(-40%);
+  transform: translateY(-20%);
   transition: transform 1s ease;
 }
 
 #Shop.show {
   visibility: visible;
-  transform: translateY(-20%);
+  transform: translateY(-40%);
 }
 
 /* For Status page */
