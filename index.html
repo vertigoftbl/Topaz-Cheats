@@ -1,79 +1,67 @@
-<!DOCTYPE html>
-<html>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #09090B;
+}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Topaz Cheats</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: #09090B;
+  padding: 20px 0;
+  width: 100%;
+  position: relative;
+  animation: navbarSlide 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+  height: 110%;
+  border-bottom: 0.5px solid red;
+}
 
-<body>
+@keyframes navbarSlide {
+  0% {
+    transform: translateY(-60%);
+  }
+  40% {
+    transform: translateY(15%);
+  }
+  70% {
+    transform: translateY(-5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
-  <div class="navbar">
-    <a href="javascript:void(0);" onclick="showPage('Home')" title="topazcheats.store/home">Home</a>
-    <a href="javascript:void(0);" onclick="showPage('Shop')" title="topazcheats.store/shop">Shop</a>
-    <a href="javascript:void(0);" onclick="showPage('Status')" title="topazcheats.store/status">Status</a>
-    <a href="javascript:void(0);" onclick="showPage('FAQ')" title="topazcheats.store/faq">FAQ</a>
-    <a href="javascript:void(0);" onclick="showPage('About')" title="topazcheats.store/about">About</a>
-    <a href="javascript:void(0);" onclick="showPage('Contact')" title="topazcheats.store/contact">Contact</a>
-  </div>
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;  /* Remove any focus outline to prevent blinking */
+  font-size: 16px;
+  position: relative;
+}
 
-  <div id="Default" class="page"></div>
+.navbar a:hover {
+  color: red;
+}
 
-  <div id="Home" class="page">
-    <h1>Welcome to Home Page</h1>
-    <p>This is the home page content.</p>
-  </div>
+.navbar a.active {
+  color: red;
+}
 
-  <div id="Shop" class="page">
-    <h1>Shop</h1>
-    <p>Here you can browse our products.</p>
-  </div>
+.navbar a[title]:hover::after {
+  content: ""; /* Remove the tooltip */
+  display: none; /* Make sure no tooltip is shown */
+}
 
-  <div id="Status" class="page">
-    <h1>Status</h1>
-    <p>Here you can check what cheats are up or down.</p>
-  </div>
-  
-  <div id="FAQ" class="page">
-    <h1>FAQ</h1>
-    <p>Here you can see common questions we get asked.</p>
-  </div>
+.page {
+  display: none;
+  padding: 20px;
+}
 
-  <div id="About" class="page">
-    <h1>About</h1>
-    <p>Here you can see what we do.</p>
-  </div>
-
-  <div id="Contact" class="page">
-    <h1>Contact Us</h1>
-    <p>Reach out to us here.</p>
-  </div>
-
-  <script>
-    window.onload = function() {
-      showPage('Default');
-    };
-
-    function showPage(pageId) {
-      // Hide all pages
-      let pages = document.querySelectorAll('.page');
-      pages.forEach(page => page.style.display = 'none');
-
-      // Show the selected page
-      document.getElementById(pageId).style.display = 'block';
-
-      // Remove active class from all navbar links
-      let links = document.querySelectorAll('.navbar a');
-      links.forEach(link => link.classList.remove('active'));
-
-      // Add active class to the clicked link
-      let activeLink = document.querySelector(`.navbar a[onclick="showPage('${pageId}')"]`);
-      activeLink.classList.add('active');
-    }
-  </script>
-
-</body>
-
-</html>
+#Default {
+  display: block;
+}
