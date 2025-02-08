@@ -53,19 +53,19 @@
 
   <script>
   window.onload = function () {
-    showPage('Home');
+    showPage('Home'); // Show the Home page by default
   };
 
   function showPage(pageId) {
     let pages = document.querySelectorAll('.page');
     pages.forEach(page => {
       page.style.visibility = 'hidden'; 
-      page.classList.remove('show');
+      page.classList.remove('show'); 
     });
 
     let activePage = document.getElementById(pageId);
     activePage.style.visibility = 'visible'; 
-    activePage.classList.add('show');
+    activePage.classList.add('show'); 
 
     let links = document.querySelectorAll('.navbar a');
     links.forEach(link => link.classList.remove('active'));
