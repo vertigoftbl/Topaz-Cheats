@@ -60,13 +60,13 @@ body {
 }
 
 .page {
-  visibility: hidden; /* Pages are hidden by default */
+  visibility: hidden; /* Initially hidden */
   padding: 20px;
-  transform: translateY(20%); /* All pages start at 20% off-screen */
-  transition: transform 1s ease; /* Smooth transition for the transform */
+  transform: translateY(20%); /* All pages start at 20% below */
+  transition: transform 1s ease; /* Smooth transition for transform */
 }
 
 .page.show {
-  visibility: visible; /* Page becomes visible when 'show' class is added */
-  transform: translateY(0%); /* Animate to the final position at 0% */
+  visibility: visible; /* Page is visible when 'show' class is added */
+  transform: translateY(0%); /* Transition smoothly to its final position */
 }
