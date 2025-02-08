@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="navbar">
-    <a href="#home" class="active">Home</a>
+    <a href="#home">Home</a>
     <a href="#shop">Shop</a>
     <a href="#status">Status</a>
     <a href="#faq">FAQ</a>
@@ -48,7 +48,7 @@
 
   <script>
     window.onload = function() {
-      setTimeout(handlePageChange, 10);
+      handlePageChange();
     };
 
     window.onhashchange = function() {
@@ -57,21 +57,25 @@
 
     function handlePageChange() {
       let pages = document.querySelectorAll('.page');
-      let currentPage = window.location.hash.substring(1) || 'home';
+      let currentPage = window.location.hash.substring(1) || 'home'; // Default to 'home' if no hash
       let activePage = document.getElementById(currentPage);
 
+      // Hide all pages
       pages.forEach(page => {
         page.classList.remove('show');
       });
 
+      // Show the active page
       if (activePage) {
         activePage.classList.add('show');
       }
 
+      // Remove 'active' class from all navbar links
       document.querySelectorAll('.navbar a').forEach(link => {
         link.classList.remove('active');
       });
 
+      // Add 'active' class to the current navbar link
       let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
       if (activeLink) {
         activeLink.classList.add('active');
