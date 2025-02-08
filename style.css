@@ -4,7 +4,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: #09090B;
-  overflow-x: hidden; /* Prevents horizontal scroll */
+  overflow: hidden; /* Completely disables scrolling */
+  height: 100vh; /* Ensure the body doesn't extend beyond the viewport */
 }
 
 .navbar {
@@ -50,22 +51,25 @@ body {
   color: red;
 }
 
-/* Page Transition Fix */
+/* Fix animation flickering and keep pages in place */
 .page {
   position: absolute;
-  top: 60px;
+  top: 50px; /* Ensures navbar is visible */
   left: 0;
   width: 100%;
-  min-height: 100vh;
+  height: calc(100vh - 50px); /* Makes sure each page takes up full screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  visibility: hidden; /* Keeps it out of layout */
+  visibility: hidden;
 }
 
 .page.show {
-  position: relative;
+  position: absolute;
   opacity: 1;
   transform: translateY(0);
-  visibility: visible; /* Makes it visible without layout shifting */
+  visibility: visible;
 }
