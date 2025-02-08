@@ -46,38 +46,45 @@
     <p>Reach out to us here.</p>
   </div>
 <script>
-    window.onload = function() {
-      handlePageChange();
-    };
-    window.onhashchange = function() {
-      handlePageChange();
-    };
+  window.onload = function() {
+    handlePageChange();
+  };
 
-    function handlePageChange() {
-      let pages = document.querySelectorAll('.page');
-      pages.forEach(page => {
-        page.classList.remove('show');
-      });
+  window.onhashchange = function() {
+    handlePageChange();
+  };
 
-      let currentPage = window.location.hash.substring(1) || 'home';
-      let activePage = document.getElementById(currentPage);
+  function handlePageChange() {
+    let pages = document.querySelectorAll('.page');
+    
+    // Remove 'show' class from all pages (hide them)
+    pages.forEach(page => {
+      page.classList.remove('show');
+    });
 
-      if (activePage) {
-        if (currentPage === 'home' && window.location.hash === '') {
-          activePage.classList.add('show');
-        } else {
-          activePage.classList.add('show');
-        }
+    let currentPage = window.location.hash.substring(1) || 'home'; // Default to 'home' if no hash
+    let activePage = document.getElementById(currentPage);
+
+    if (activePage) {
+      if (currentPage === 'home' && window.location.hash === '') {
+        activePage.classList.add('show');
+      } else {
+        activePage.classList.add('show');
       }
-
-      document.querySelectorAll('.navbar a').forEach(link => {
-        link.classList.remove('active');
-      });
-
-      let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
-      if (activeLink) activeLink.classList.add('active');
     }
-  </script>
+
+    // Update the navbar active link
+    document.querySelectorAll('.navbar a').forEach(link => {
+      link.classList.remove('active');
+    });
+
+    let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
+    if (activeLink) activeLink.classList.add('active');
+  }
+
+  window.onload = handlePageChange;
+  window.onhashchange = handlePageChange;
+</script>
 
 </body>
 </html>
