@@ -11,12 +11,12 @@
 <body>
 
   <div class="navbar">
-    <a onclick="showPage('Home')">Home</a>
-    <a onclick="showPage('Store')">Store</a>
-    <a onclick="showPage('Status')">Status</a>
-    <a onclick="showPage('FAQ')">FAQ</a>
-    <a onclick="showPage('About')">About</a>
-    <a onclick="showPage('Contact')">Contact</a>
+    <a href="javascript:void(0);" onclick="showPage('Home')">Home</a>
+    <a href="javascript:void(0);" onclick="showPage('Store')">Store</a>
+    <a href="javascript:void(0);" onclick="showPage('Status')">Status</a>
+    <a href="javascript:void(0);" onclick="showPage('FAQ')">FAQ</a>
+    <a href="javascript:void(0);" onclick="showPage('About')">About</a>
+    <a href="javascript:void(0);" onclick="showPage('Contact')">Contact</a>
   </div>
 
   <div id="Home" class="page">
@@ -51,9 +51,20 @@
 
   <script>
     function showPage(pageId) {
+      // Hide all pages
       let pages = document.querySelectorAll('.page');
       pages.forEach(page => page.style.display = 'none');
+
+      // Show the selected page
       document.getElementById(pageId).style.display = 'block';
+
+      // Remove active class from all navbar links
+      let links = document.querySelectorAll('.navbar a');
+      links.forEach(link => link.classList.remove('active'));
+
+      // Add active class to the clicked link
+      let activeLink = document.querySelector(`.navbar a[href="javascript:void(0);"][onclick="showPage('${pageId}')"]`);
+      activeLink.classList.add('active');
     }
   </script>
 
