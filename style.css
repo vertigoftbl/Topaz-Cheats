@@ -65,62 +65,13 @@ body {
   transition: transform 1s ease; /* Smooth transition for transform */
 }
 
-#Home {
+#home, #shop, #status, #faq, #about, #contact {
   visibility: hidden;
   transform: translateY(20%);
 }
 
-#Home.show {
+#home.show, #shop.show, #status.show, #faq.show, #about.show, #contact.show {
   visibility: visible;
   transform: translateY(0%);
 }
 
-#Shop {
-  visibility: hidden;
-  transform: translateY(20%);
-}
-
-#Shop.show {
-  visibility: visible;
-  transform: translateY(0%);
-}
-
-#Status {
-  visibility: hidden;
-  transform: translateY(20%);
-}
-
-#Status.show {
-  visibility: visible;
-  transform: translateY(0%);
-}
-
-#FAQ {
-  visibility: hidden;
-  transform: translateY(20%);
-}
-
-#FAQ.show {
-  visibility: visible;
-  transform: translateY(0%);
-}
-
-#About {
-  visibility: hidden;
-  transform: translateY(20%);
-}
-
-#About.show {
-  visibility: visible;
-  transform: translateY(0%);
-}
-
-#Contact {
-  visibility: hidden;
-  transform: translateY(20%);
-}
-
-#Contact.show {
-  visibility: visible;
-  transform: translateY(0%);
-}
