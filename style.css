@@ -30,6 +30,9 @@ body {
   70% {
     transform: translateY(-2px); /* Very small bounce down */
   }
+  100% {
+    transform: translateY(0); /* Final resting position */
+  }
 }
 
 /* Navbar Links (Remove padding, set text color and add hover color) */
