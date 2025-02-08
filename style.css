@@ -16,7 +16,7 @@ body {
   position: relative;
   animation: navbarSlide 0.7s cubic-bezier(0.5, 0, 0.5, 1); /* Smoother bounce */
   height: 110%; /* 10% taller */
-  transform: translateY(-10%); /* Start 10% higher */
+  /* Remove transform: translateY(-10%) here, let the animation handle the position */
 }
 
 /* Bounce Effect Animation */
@@ -25,13 +25,13 @@ body {
     transform: translateY(-60px); /* Start 60px higher */
   }
   40% {
-    transform: translateY(5px); /* Slight bounce up */
+    transform: translateY(15px); /* Bounce up slightly */
   }
-  70% {
-    transform: translateY(-2px); /* Very small bounce down */
+  60% {
+    transform: translateY(-5px); /* Small bounce down */
   }
   100% {
-    transform: translateY(0); /* Final resting position */
+    transform: translateY(0); /* Final smooth position */
   }
 }
 
