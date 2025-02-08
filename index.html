@@ -61,7 +61,7 @@
     page.classList.remove('show');
     setTimeout(() => {
       page.style.visibility = 'hidden';
-    }, 500);
+    }, 500); // Wait for animation to finish before hiding
   });
 
   let currentPage = window.location.hash.substring(1) || 'home';
@@ -69,9 +69,7 @@
 
   if (activePage) {
     activePage.style.visibility = 'visible';
-    setTimeout(() => {
-      activePage.classList.add('show');
-    }, 50);
+    activePage.classList.add('show');
   }
 
   document.querySelectorAll('.navbar a').forEach(link => {
@@ -84,8 +82,6 @@
 
 window.onload = handlePageChange;
 window.onhashchange = handlePageChange;
-
-
   </script>
 
 </body>
