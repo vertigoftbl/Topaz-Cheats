@@ -21,7 +21,7 @@ body {
   top: 0;
   left: 0;
   z-index: 1000;
-  border-bottom: 0.5px solid red;
+  border-bottom: 0.5px solid #062E85;
   animation: navbarSlide 0.5s cubic-bezier(0.5, 0, 0.5, 1);
 }
 
@@ -50,7 +50,7 @@ body {
 }
 
 .navbar a.active {
-  color: red;
+  color: #062E85;
 }
 
 .page {
