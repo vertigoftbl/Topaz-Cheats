@@ -3,14 +3,14 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  background-color: #333;
+  background-color: #09090B;
 }
 
 .navbar {
   display: flex;
   justify-content: center;
   gap: 20px;
-  background: #333;
+  background: #09090B;
   padding: 20px 0;
   width: 100%;
   position: relative;
