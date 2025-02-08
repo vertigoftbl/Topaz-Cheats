@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Topaz Cheats</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <div class="navbar">
+    <a onclick="showPage('Home')">Home</a>
+    <a onclick="showPage('Store')">Store</a>
+    <a onclick="showPage('Status')">Status</a>
+    <a onclick="showPage('FAQ')">FAQ</a>
+    <a onclick="showPage('About')">About</a>
+    <a onclick="showPage('Contact')">Contact</a>
+  </div>
+
+  <div id="Home" class="page">
+    <h1>Welcome to Home Page</h1>
+    <p>This is the home page content.</p>
+  </div>
+
+  <div id="Store" class="page">
+    <h1>Store</h1>
+    <p>Here you can browse our products.</p>
+  </div>
+
+  <div id="Status" class="page">
+    <h1>Status</h1>
+    <p>Here you can check what cheats are up or down.</p>
+  </div>
+  
+  <div id="FAQ" class="page">
+    <h1>FAQ</h1>
+    <p>Here you can see common questions we get asked.</p>
+  </div>
+
+  <div id="About" class="page">
+    <h1>About</h1>
+    <p>Here you can see what we do.</p>
+  </div>
+
+  <div id="Contact" class="page">
+    <h1>Contact Us</h1>
+    <p>Reach out to us here.</p>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      let pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.style.display = 'none');
+      document.getElementById(pageId).style.display = 'block';
+    }
+  </script>
+
+</body>
+
+</html>
