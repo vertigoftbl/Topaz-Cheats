@@ -14,21 +14,20 @@ body {
   padding: 20px 0;
   width: 100%;
   position: relative;
-  animation: navbarSlide 0.7s cubic-bezier(0.5, 0, 0.5, 1);
+  animation: navbarSlide 0.5s cubic-bezier(0.5, 0, 0.5, 1);
   height: 110%;
-  transform: translateY(-50%);
   outline: 1px solid red;
 }
 
 @keyframes navbarSlide {
   0% {
-    transform: translateY(-50%);
+    transform: translateY(-60%);
   }
   40% {
-    transform: translateY(10%);
+    transform: translateY(15%);
   }
   70% {
-    transform: translateY(-2%);
+    transform: translateY(-5%);
   }
   100% {
     transform: translateY(0);
