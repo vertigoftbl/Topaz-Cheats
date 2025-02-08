@@ -67,8 +67,8 @@ body {
 }
 
 #Home {
-  visibility: visible;
-  transform: translateY(0%); 
+  visibility: visible; /* Home page is visible by default */
+  transform: translateY(20%); /* Start the home page from 20% */
 }
 
 .page.show {
