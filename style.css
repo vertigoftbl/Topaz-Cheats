@@ -60,18 +60,13 @@ body {
 }
 
 .page {
-  visibility: hidden; 
+  visibility: hidden;
   padding: 20px;
   transform: translateY(20%); /* All pages start at 20% down */
-  transition: transform 1s ease; 
-}
-
-#Home {
-  visibility: visible; /* Home page is visible by default */
-  transform: translateY(20%); /* Start the home page from 20% */
+  transition: transform 1s ease; /* Smooth transition */
 }
 
 .page.show {
-  visibility: visible; 
-  transform: translateY(0%); /* All pages go to their final position */
+  visibility: visible;
+  transform: translateY(0%); /* All pages go to 0% */
 }
