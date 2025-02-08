@@ -11,12 +11,12 @@
 <body>
 
   <div class="navbar">
-    <a href="/Home" onclick="showPage('Home')" title="topazcheats.store/home">Home</a>
-    <a href="/Shop" onclick="showPage('Shop')" title="topazcheats.store/shop">Shop</a>
-    <a href="/Status" onclick="showPage('Status')" title="topazcheats.store/status">Status</a>
-    <a href="/FAQ" onclick="showPage('FAQ')" title="topazcheats.store/faq">FAQ</a>
-    <a href="/About" onclick="showPage('About')" title="topazcheats.store/about">About</a>
-    <a href="/Contact" onclick="showPage('Contact')" title="topazcheats.store/contact">Contact</a>
+    <a href="javascript:void(0);" onclick="showPage('Home')" title="topazcheats.store/home">Home</a>
+    <a href="javascript:void(0);" onclick="showPage('Shop')" title="topazcheats.store/shop">Shop</a>
+    <a href="javascript:void(0);" onclick="showPage('Status')" title="topazcheats.store/status">Status</a>
+    <a href="javascript:void(0);" onclick="showPage('FAQ')" title="topazcheats.store/faq">FAQ</a>
+    <a href="javascript:void(0);" onclick="showPage('About')" title="topazcheats.store/about">About</a>
+    <a href="javascript:void(0);" onclick="showPage('Contact')" title="topazcheats.store/contact">Contact</a>
   </div>
 
   <div id="Default" class="page"></div>
@@ -57,14 +57,18 @@
     };
 
     function showPage(pageId) {
+      // Hide all pages
       let pages = document.querySelectorAll('.page');
       pages.forEach(page => page.style.display = 'none');
 
+      // Show the selected page
       document.getElementById(pageId).style.display = 'block';
 
+      // Remove active class from all navbar links
       let links = document.querySelectorAll('.navbar a');
       links.forEach(link => link.classList.remove('active'));
 
+      // Add active class to the clicked link
       let activeLink = document.querySelector(`.navbar a[onclick="showPage('${pageId}')"]`);
       activeLink.classList.add('active');
     }
