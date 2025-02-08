@@ -59,19 +59,81 @@ body {
   display: none;
 }
 
-.page {
+/* For Home page */
+#Home {
   visibility: hidden;
   padding: 20px;
-  transform: translateY(20%); /* All pages start 20% down */
-  transition: transform 1s ease; /* Smooth transition */
+  transform: translateY(20%);
+  transition: transform 1s ease;
 }
 
-.page.show {
+#Home.show {
   visibility: visible;
-  transform: translateY(0%); /* All pages go to 0% */
+  transform: translateY(0%);
 }
 
-#Home {
-  visibility: visible; /* Make Home page visible by default */
-  transform: translateY(0%); /* Home page starts at 0% */
+/* For Shop page */
+#Shop {
+  visibility: hidden;
+  padding: 20px;
+  transform: translateY(20%);
+  transition: transform 1s ease;
 }
+
+#Shop.show {
+  visibility: visible;
+  transform: translateY(0%);
+}
+
+/* For Status page */
+#Status {
+  visibility: hidden;
+  padding: 20px;
+  transform: translateY(20%);
+  transition: transform 1s ease;
+}
+
+#Status.show {
+  visibility: visible;
+  transform: translateY(0%);
+}
+
+/* For FAQ page */
+#FAQ {
+  visibility: hidden;
+  padding: 20px;
+  transform: translateY(20%);
+  transition: transform 1s ease;
+}
+
+#FAQ.show {
+  visibility: visible;
+  transform: translateY(0%);
+}
+
+/* For About page */
+#About {
+  visibility: hidden;
+  padding: 20px;
+  transform: translateY(20%);
+  transition: transform 1s ease;
+}
+
+#About.show {
+  visibility: visible;
+  transform: translateY(0%);
+}
+
+/* For Contact page */
+#Contact {
+  visibility: hidden;
+  padding: 20px;
+  transform: translateY(20%);
+  transition: transform 1s ease;
+}
+
+#Contact.show {
+  visibility: visible;
+  transform: translateY(0%);
+}
+
