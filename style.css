@@ -24,8 +24,11 @@ body {
   0% {
     transform: translateY(-60px); /* Start 60px higher */
   }
-  50% {
-    transform: translateY(15px); /* Bounce up */
+  40% {
+    transform: translateY(5px); /* Slight bounce up */
+  }
+  70% {
+    transform: translateY(-2px); /* Very small bounce down */
   }
   100% {
     transform: translateY(0); /* Final resting position */
