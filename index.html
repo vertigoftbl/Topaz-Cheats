@@ -35,7 +35,7 @@
     <h1>Status</h1>
     <p>Here you can check what cheats are up or down.</p>
   </div>
-  
+
   <div id="FAQ" class="page">
     <h1>FAQ</h1>
     <p>Here you can see common questions we get asked.</p>
@@ -52,7 +52,7 @@
   </div>
 
   <script>
-    window.onload = function() {
+    window.onload = function () {
       showPage('Default');
     };
 
@@ -61,8 +61,10 @@
       let pages = document.querySelectorAll('.page');
       pages.forEach(page => page.style.display = 'none');
 
-      // Show the selected page
-      document.getElementById(pageId).style.display = 'block';
+      // Show the selected page and add animation
+      let activePage = document.getElementById(pageId);
+      activePage.style.display = 'block';
+      activePage.classList.add('show'); // Add the animation class
 
       // Remove active class from all navbar links
       let links = document.querySelectorAll('.navbar a');
