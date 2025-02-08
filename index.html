@@ -60,7 +60,7 @@
   pages.forEach(page => {
     page.classList.remove('show');
     setTimeout(() => {
-      page.style.visibility = 'hidden'; // Fully hide after transition
+      page.style.visibility = 'hidden';
     }, 500);
   });
 
@@ -68,13 +68,11 @@
   let activePage = document.getElementById(currentPage);
 
   if (activePage) {
-    activePage.style.visibility = 'visible'; // Show before animation starts
+    activePage.style.visibility = 'visible';
     setTimeout(() => {
       activePage.classList.add('show');
     }, 50);
   }
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 
   document.querySelectorAll('.navbar a').forEach(link => {
     link.classList.remove('active');
@@ -86,6 +84,7 @@
 
 window.onload = handlePageChange;
 window.onhashchange = handlePageChange;
+
 
   </script>
 
