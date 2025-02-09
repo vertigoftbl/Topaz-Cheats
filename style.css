@@ -116,6 +116,11 @@ body {
   position: relative;
 }
 
+#home h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
 .main-div {
   width: 100%;
   height: 450px;
