@@ -53,43 +53,49 @@
   </div>
 
   <script>
-    window.onload = function() {
+    window.onload = function () {
   handlePageChange();
 };
 
-window.onhashchange = function() {
+window.onhashchange = function () {
   handlePageChange();
 };
 
 function handlePageChange() {
-  let pages = document.querySelectorAll('.page');
-  let currentPage = window.location.hash.substring(1) || 'home';
+  let pages = document.querySelectorAll(".page");
+  let currentPage = window.location.hash.substring(1) || "home";
   let activePage = document.getElementById(currentPage);
 
-  pages.forEach(page => {
-    page.classList.remove('show');
+  // Hide all pages
+  pages.forEach((page) => {
+    page.classList.remove("show");
   });
 
+  // Show the active page
   if (activePage) {
-    activePage.classList.add('show');
+    activePage.classList.add("show");
   }
 
-  document.querySelectorAll('.navbar a').forEach(link => {
-    link.classList.remove('active');
+  // Remove 'active' class from all navbar links
+  document.querySelectorAll(".navbar a").forEach((link) => {
+    link.classList.remove("active");
   });
 
+  // Add 'active' class to the correct navbar link
   let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
   if (activeLink) {
-    activeLink.classList.add('active');
+    activeLink.classList.add("active");
   }
 
-  if (currentPage === 'home') {
-    window.scrollTo(0, 100);
+  // **Force the page to stay at the top when switching to home**
+  if (currentPage === "home") {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 10); // Small delay to ensure positioning works
   } else {
     window.scrollTo(0, 0);
   }
 }
-
   </script>
 
 </body>
