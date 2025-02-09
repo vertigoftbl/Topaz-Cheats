@@ -67,6 +67,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  box-shadow: 0 0 10px rgba(98, 0, 234, 0.5);
   transition: background-color 0.3s ease;
 }
 
