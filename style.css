@@ -95,14 +95,23 @@ body {
   -moz-box-shadow: 0px 0px 30px 3px rgba(8, 26, 117, 0.72);
   box-shadow: 0px 0px 30px 3px rgba(8, 26, 117, 0.72);
   transform: scale(1.05);
+  animation: moveLeftRight 1.5s ease-in-out infinite; /* Ensure animation continues during hover */
+}
+
+#home .buy-button span {
+  margin-right: 15px;
 }
 
 #home .buy-button:hover span {
-  margin-right: 20px;
+  margin-right: 15px; /* Keep same position of text during hover */
+}
+
+#home .buy-button-img {
+  margin-left: 20px; /* Consistent positioning of arrow */
 }
 
 #home .buy-button:hover .buy-button-img {
-  margin-left: 25px;
+  margin-left: 20px; /* Ensure arrow stays in same place during hover */
 }
 
 @keyframes moveLeftRight {
