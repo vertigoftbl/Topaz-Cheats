@@ -61,7 +61,8 @@ body {
 #home .buy-button {
   background-color: #05125a;
   color: white;
-  font-size: 18px;
+  font-size: 13px;
+  font-family: Poppins;
   padding: 15px 40px;
   margin-top: 20px;
   border: none;
