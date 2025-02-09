@@ -71,43 +71,39 @@ function handlePageChange() {
   let currentPage = window.location.hash.substring(1) || "home";
   let activePage = document.getElementById(currentPage);
 
-  // Hide all pages except the active one
+  // **Fix for flashing issue:** Immediately hide all pages
   pages.forEach((page) => {
-    if (page !== activePage) {
-      page.classList.remove("show");
-    }
+    page.style.visibility = "hidden"; // Instantly hide all pages
+    page.classList.remove("show");
   });
 
-  // Show the active page
-  if (activePage) {
-    activePage.classList.add("show");
-  }
+  setTimeout(() => {
+    if (activePage) {
+      activePage.style.visibility = "visible";
+      activePage.classList.add("show");
+    }
+  }, 10);
 
-  // Remove 'active' class from all navbar links
   document.querySelectorAll(".navbar a").forEach((link) => {
     link.classList.remove("active");
   });
 
-  // Add 'active' class to the correct navbar link
   let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
   if (activeLink) {
     activeLink.classList.add("active");
   }
 
-  // Prevent clicking the same link from doing anything
   document.querySelectorAll(".navbar a").forEach((link) => {
     link.onclick = function (event) {
       let targetPage = this.getAttribute("href").substring(1);
 
       if (targetPage === currentPage) {
-        event.preventDefault(); // Stop hash update
-        return; // Do nothing
+        event.preventDefault();
+        return;
       }
 
-      // Change hash (which triggers onhashchange)
       window.location.hash = targetPage;
 
-      // Scroll to top
       setTimeout(() => {
         window.scrollTo(0, 0);
       }, 10);
