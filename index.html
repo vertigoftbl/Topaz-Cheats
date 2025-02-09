@@ -71,16 +71,16 @@ function handlePageChange() {
   let currentPage = window.location.hash.substring(1) || "home";
   let activePage = document.getElementById(currentPage);
 
-  // Hide all pages
+  // Hide all pages except the active one
   pages.forEach((page) => {
-    page.classList.remove("show");
+    if (page !== activePage) {
+      page.classList.remove("show");
+    }
   });
 
   // Show the active page
   if (activePage) {
-    setTimeout(() => {
-      activePage.classList.add("show");
-    }, 10); // Small delay to re-trigger animation
+    activePage.classList.add("show");
   }
 
   // Remove 'active' class from all navbar links
@@ -94,34 +94,25 @@ function handlePageChange() {
     activeLink.classList.add("active");
   }
 
-  // Ensure clicking the same link plays the animation again
+  // Prevent clicking the same link from doing anything
   document.querySelectorAll(".navbar a").forEach((link) => {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
+    link.onclick = function (event) {
       let targetPage = this.getAttribute("href").substring(1);
 
       if (targetPage === currentPage) {
-        // Remove and re-add the 'show' class to restart animation
-        activePage.classList.remove("show");
-        setTimeout(() => {
-          activePage.classList.add("show");
-        }, 10);
+        event.preventDefault(); // Stop hash update
+        return; // Do nothing
       }
 
-      // Update hash & reset scroll
+      // Change hash (which triggers onhashchange)
       window.location.hash = targetPage;
+
+      // Scroll to top
       setTimeout(() => {
         window.scrollTo(0, 0);
       }, 10);
-    });
+    };
   });
-
-  // Reset scroll position on every page change
-  setTimeout(() => {
-    window.scrollTo(0, 0);
-  }, 10);
 }
-  </script>
-
 </body>
 </html>
