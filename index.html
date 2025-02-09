@@ -54,36 +54,42 @@
 
   <script>
     window.onload = function() {
-      window.scrollTo(0, 0);
-      handlePageChange();
-    };
+  handlePageChange();
+};
 
-    window.onhashchange = function() {
-      handlePageChange();
-    };
+window.onhashchange = function() {
+  handlePageChange();
+};
 
-    function handlePageChange() {
-      let pages = document.querySelectorAll('.page');
-      let currentPage = window.location.hash.substring(1) || 'home';
-      let activePage = document.getElementById(currentPage);
+function handlePageChange() {
+  let pages = document.querySelectorAll('.page');
+  let currentPage = window.location.hash.substring(1) || 'home';
+  let activePage = document.getElementById(currentPage);
 
-      pages.forEach(page => {
-        page.classList.remove('show');
-      });
+  pages.forEach(page => {
+    page.classList.remove('show');
+  });
 
-      if (activePage) {
-        activePage.classList.add('show');
-      }
+  if (activePage) {
+    activePage.classList.add('show');
+  }
 
-      document.querySelectorAll('.navbar a').forEach(link => {
-        link.classList.remove('active');
-      });
+  document.querySelectorAll('.navbar a').forEach(link => {
+    link.classList.remove('active');
+  });
 
-      let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
-      if (activeLink) {
-        activeLink.classList.add('active');
-      }
-    }
+  let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
+  if (activeLink) {
+    activeLink.classList.add('active');
+  }
+
+  if (currentPage === 'home') {
+    window.scrollTo(0, 100);
+  } else {
+    window.scrollTo(0, 0);
+  }
+}
+
   </script>
 
 </body>
