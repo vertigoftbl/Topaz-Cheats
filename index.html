@@ -55,6 +55,23 @@
   <script>
     window.onload = function () {
   handlePageChange();
+
+  let currentPage = window.location.hash.substring(1) || "home";
+  if (currentPage !== "home") {
+    let savedScroll = sessionStorage.getItem("scrollPosition");
+    if (savedScroll) {
+      window.scrollTo(0, parseInt(savedScroll, 10));
+    }
+  }
+};
+
+window.onbeforeunload = function () {
+  let currentPage = window.location.hash.substring(1) || "home";
+  if (currentPage !== "home") {
+    sessionStorage.setItem("scrollPosition", window.scrollY);
+  } else {
+    sessionStorage.removeItem("scrollPosition");
+  }
 };
 
 window.onhashchange = function () {
@@ -66,36 +83,39 @@ function handlePageChange() {
   let currentPage = window.location.hash.substring(1) || "home";
   let activePage = document.getElementById(currentPage);
 
-  // Hide all pages
   pages.forEach((page) => {
     page.classList.remove("show");
   });
 
-  // Show the active page
   if (activePage) {
     activePage.classList.add("show");
   }
 
-  // Remove 'active' class from all navbar links
   document.querySelectorAll(".navbar a").forEach((link) => {
     link.classList.remove("active");
   });
 
-  // Add 'active' class to the correct navbar link
   let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
   if (activeLink) {
     activeLink.classList.add("active");
   }
 
-  // **Force the page to stay at the top when switching to home**
+  document.querySelectorAll(".navbar a").forEach((link) => {
+    link.addEventListener("click", function (event) {
+      if (window.location.hash === this.getAttribute("href")) {
+        event.preventDefault();
+        window.scrollTo(0, 0);
+      }
+    });
+  });
+
   if (currentPage === "home") {
     setTimeout(() => {
       window.scrollTo(0, 0);
-    }, 10); // Small delay to ensure positioning works
-  } else {
-    window.scrollTo(0, 0);
+    }, 10);
   }
 }
+
   </script>
 
 </body>
