@@ -78,7 +78,9 @@ function handlePageChange() {
 
   // Show the active page
   if (activePage) {
-    activePage.classList.add("show");
+    setTimeout(() => {
+      activePage.classList.add("show");
+    }, 10); // Small delay to re-trigger animation
   }
 
   // Remove 'active' class from all navbar links
@@ -99,12 +101,14 @@ function handlePageChange() {
       let targetPage = this.getAttribute("href").substring(1);
 
       if (targetPage === currentPage) {
+        // Remove and re-add the 'show' class to restart animation
         activePage.classList.remove("show");
         setTimeout(() => {
           activePage.classList.add("show");
         }, 10);
       }
 
+      // Update hash & reset scroll
       window.location.hash = targetPage;
       setTimeout(() => {
         window.scrollTo(0, 0);
