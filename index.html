@@ -56,22 +56,10 @@
     window.onload = function () {
   handlePageChange();
 
-  let currentPage = window.location.hash.substring(1) || "home";
-  if (currentPage !== "home") {
-    let savedScroll = sessionStorage.getItem("scrollPosition");
-    if (savedScroll) {
-      window.scrollTo(0, parseInt(savedScroll, 10));
-    }
-  }
-};
-
-window.onbeforeunload = function () {
-  let currentPage = window.location.hash.substring(1) || "home";
-  if (currentPage !== "home") {
-    sessionStorage.setItem("scrollPosition", window.scrollY);
-  } else {
-    sessionStorage.removeItem("scrollPosition");
-  }
+  // Always reset scroll position on load
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 10);
 };
 
 window.onhashchange = function () {
@@ -83,39 +71,52 @@ function handlePageChange() {
   let currentPage = window.location.hash.substring(1) || "home";
   let activePage = document.getElementById(currentPage);
 
+  // Hide all pages
   pages.forEach((page) => {
     page.classList.remove("show");
   });
 
+  // Show the active page
   if (activePage) {
     activePage.classList.add("show");
   }
 
+  // Remove 'active' class from all navbar links
   document.querySelectorAll(".navbar a").forEach((link) => {
     link.classList.remove("active");
   });
 
+  // Add 'active' class to the correct navbar link
   let activeLink = document.querySelector(`.navbar a[href="#${currentPage}"]`);
   if (activeLink) {
     activeLink.classList.add("active");
   }
 
+  // Ensure clicking the same link plays the animation again
   document.querySelectorAll(".navbar a").forEach((link) => {
     link.addEventListener("click", function (event) {
-      if (window.location.hash === this.getAttribute("href")) {
-        event.preventDefault();
-        window.scrollTo(0, 0);
+      event.preventDefault();
+      let targetPage = this.getAttribute("href").substring(1);
+
+      if (targetPage === currentPage) {
+        activePage.classList.remove("show");
+        setTimeout(() => {
+          activePage.classList.add("show");
+        }, 10);
       }
+
+      window.location.hash = targetPage;
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 10);
     });
   });
 
-  if (currentPage === "home") {
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 10);
-  }
+  // Reset scroll position on every page change
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 10);
 }
-
   </script>
 
 </body>
