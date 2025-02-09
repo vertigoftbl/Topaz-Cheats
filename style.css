@@ -89,8 +89,12 @@ body {
 #home .buy-button-img {
   width: 25px;
   height: 25px;
-  margin-left: 10px;
+  margin-left: 15px;
   animation: moveLeftRight 1.5s ease-in-out infinite;
+}
+
+#home .buy-button span {
+  margin-right: 10px;
 }
 
 @keyframes moveLeftRight {
