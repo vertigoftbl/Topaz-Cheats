@@ -78,6 +78,17 @@ body {
   position: relative;
 }
 
+#home .buy-button span {
+  margin-right: 15px;
+}
+
+#home .buy-button-img {
+  width: 25px;
+  height: 25px;
+  margin-left: 20px;
+  animation: moveLeftRight 1.5s ease-in-out infinite;
+}
+
 #home .buy-button:hover {
   background-color: #041052;
   -webkit-box-shadow: 0px 0px 30px 3px rgba(8, 26, 117, 0.72);
@@ -86,15 +97,12 @@ body {
   transform: scale(1.05);
 }
 
-#home .buy-button-img {
-  width: 25px;
-  height: 25px;
-  margin-left: 15px;
-  animation: moveLeftRight 1.5s ease-in-out infinite;
+#home .buy-button:hover span {
+  margin-right: 20px;
 }
 
-#home .buy-button span {
-  margin-right: 10px;
+#home .buy-button:hover .buy-button-img {
+  margin-left: 25px;
 }
 
 @keyframes moveLeftRight {
