@@ -76,7 +76,6 @@ body {
   box-shadow: 0px 0px 25px 1px rgba(8, 26, 117, 0.7);
   transition: background-color 0.5s ease, transform 0.8s ease, box-shadow 0.8s ease;
   position: relative;
-  transform-origin: center; /* Scale from the center */
 }
 
 #home .buy-button span {
@@ -111,9 +110,6 @@ body {
     transform: translateX(8px);
   }
 }
-
-
-
 
 .page {
   position: absolute;
